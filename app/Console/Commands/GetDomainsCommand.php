@@ -32,8 +32,8 @@ class GetDomainsCommand extends Command
     protected static $NumReturn         = 100;
     protected static $SigVersion        = '2';
     protected static $HashAlgorithm     = 'HmacSHA256';
-	protected static $accessKeyId		= 'AKIAJDBN2VF35XZ4ULVQ';
-	protected static $secretAccessKey	= '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';
+	protected static $accessKeyId		= '';
+	protected static $secretAccessKey	= '';
 	protected static $countryCode		= '';
 	protected $StartNum					= 1;
 
