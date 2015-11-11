@@ -16,7 +16,7 @@ class CreateDomainsTable extends Migration
             $table->increments('id');
 			$table->string('domain');
 			$table->integer('rank');
-			$table->timestamp('created_at')->default('now()');
+			$table->timestamp('created_at');
         });
     }
 
