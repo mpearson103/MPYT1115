@@ -56,11 +56,16 @@ class GetDomainsCommand extends Command
     {
 		$domainsArray = [];
 
+		// Let's try to be efficient and take only two trips to the DB
 		for ($i = 0; $i <= 4; $i++) {
 			$domainsArray = $this->getTopSites($domainsArray);
 			$this->StartNum = $this->StartNum + 100;
 		}
 
+		// Nice clean table
+		self::truncateDomains();
+
+		// Mass Insert
 		self::insertDomains($domainsArray);
     }
 
@@ -153,6 +158,11 @@ class GetDomainsCommand extends Command
 
 		return $domainsArray;
     }
+
+	protected static function truncateDomains() {
+		DB::table('domains')->truncate();
+		return;
+	}
 
 	/**
 	 * Inserts all domains and their rankings into the
